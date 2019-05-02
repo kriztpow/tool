@@ -1,25 +1,28 @@
- /* PLEASE DO NOT COPY AND PASTE THIS CODE. */
+/* PLEASE DO NOT COPY AND PASTE THIS CODE. */
 (function() {
     var CFG = '___grecaptcha_cfg';
     if (!window[CFG]) {
         window[CFG] = {};
     }
-    var GR = '';
+    var GR = 'grecaptcha';
     if (!window[GR]) {
         window[GR] = {};
     }
     window[GR].ready = window[GR].ready || function(f) {
-        (window[CFG][''] = window[CFG][''] || []).push(f);
-    }
-    ;
-    (window[CFG]['render'] = window[CFG][''] || []).push('explicit');
-    (window[CFG]['onload'] = window[CFG][''] || []).push('onloadCallback');
+        (window[CFG]['fns'] = window[CFG]['fns'] || []).push(f);
+    };
+    (window[CFG]['render'] = window[CFG]['render'] || []).push('explicit');
+    (window[CFG]['onload'] = window[CFG]['onload'] || []).push('onloadCallback');
     window['__google_recaptcha_client'] = true;
     var po = document.createElement('script');
     po.type = 'text/javascript';
     po.async = true;
-    po.src = 'https://www.gstatic.com/recaptcha/api2/v1554100419869/recaptcha__es.js';
+    po.src = 'https://cors.io/?https://www.gstatic.com/recaptcha/api2/v1555968629716/recaptcha__es.js';
+    var elem = document.querySelector('script[nonce]');
+    var n = elem && (elem['nonce'] || elem.getAttribute('nonce'));
+    if (n) {
+        po.setAttribute('nonce', n);
+    }
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(po, s);
-}
-)();
+})();
